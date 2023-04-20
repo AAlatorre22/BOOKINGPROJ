@@ -12,10 +12,11 @@ namespace BOOKINGPROJ
             string apiKey = JObject.Parse(key).GetValue("DefaultKey").ToString();
             string apiCall = $"https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb";
 
-            Console.WriteLine(Hotels.Description(apiKey));
+            //Console.WriteLine(Hotels.Description(apiKey));
+            Console.WriteLine(Cities.City(apiKey));
 
             //unsure
-           // Console.WriteLine(Provider.Description(Hotels.Description, KeyHolder.GetKey));
+            // Console.WriteLine(Provider.Description(Hotels.Description, KeyHolder.GetKey));
 
 
 
