@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace BOOKINGPROJ
 {
-    public class KeyHolder
+    public static class KeyHolder
     {
+        //even more wtf
         public static string GetKey() 
         { 
         string key = File.ReadAllText("appsettings.json");
