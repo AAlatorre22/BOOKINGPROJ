@@ -10,7 +10,7 @@ namespace BOOKINGPROJ
 {
     internal class Provider
     {
-        public static string Description(string apiKey)
+        public static string CallApi(string apiKey)
         {
             //wtf?
             var client = new RestClient("https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb");

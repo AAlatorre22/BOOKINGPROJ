@@ -40,24 +40,24 @@ namespace BOOKINGPROJ
 
 
 
-        //public static string City(string apiKey, string city)
-        //{
-        //Console.WriteLine("What city would you like to search?");
-        //var city = Console.ReadLine().ToLower();
-        //var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
-        //var request = new RestRequest();
-        //request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
-        //request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
-        //var response = client.Execute(request);
-        //var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
-        //return destID;
+        public static string City(string apiKey) //, string city)
+        {
+            Console.WriteLine("What city would you like to search?");
+            var city = Console.ReadLine().ToLower();
+            var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
+            var request = new RestRequest();
+            request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
+            request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
+            var response = client.Execute(request);
+            var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
+            return destID;
 
 
-        //}
+            }
 
 
 
-        public static string Search(string apiKey, string destID)
+            public static string Search(string apiKey, string destID)
         {
 
             var client = new RestClient($"https://booking-com.p.rapidapi.com/v2/hotels/search?order_by=price&adults_number=2&checkin_date=2023-09-27&filter_by_currency=USD&dest_id={destID}&locale=en-gb&checkout_date=2023-09-28&units=imperial&room_number=1&dest_type=city&children_number=2&page_number=0");
@@ -77,7 +77,7 @@ namespace BOOKINGPROJ
             request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
             request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
             var response = client.Get(request);
-            var value = JObject.Parse(response.Content)["results"][0]["priceBreakdown"]["grossPrice"]["value"].ToString();
+            var value = JObject.Parse(response.Content)["results"][1]["priceBreakdown"]["grossPrice"]["value"].ToString();
             return value;
         }
 
@@ -89,7 +89,7 @@ namespace BOOKINGPROJ
             request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
             request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
             var response = client.Get(request);
-            var value = JObject.Parse(response.Content)["results"][1]["name"].ToString();
+            var value = JObject.Parse(response.Content)["results"][3]["name"].ToString();
             return value;
         }
 

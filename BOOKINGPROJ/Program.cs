@@ -13,29 +13,30 @@ namespace BOOKINGPROJ
             string apiKey = JObject.Parse(key).GetValue("DefaultKey").ToString();
             string apiCall = $"https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb";
 
-            Console.WriteLine("What city would you like to search?");
-            var city = Console.ReadLine().ToLower();
-            var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
-            var request = new RestRequest();
-            request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
-            request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
-            var response = client.Execute(request);
-            var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
-            Console.WriteLine(destID);
+            //Console.WriteLine("What city would you like to search?");
+            //var city = Console.ReadLine().ToLower();
+            //var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
+            //var request = new RestRequest();
+            //request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
+            //request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
+            //var response = client.Execute(request);
+            //var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
+            //Console.WriteLine(destID);
 
             
             //unsure
             // Console.WriteLine(Provider.Description(Hotels.Description, KeyHolder.GetKey));
 
 
-            //Console.WriteLine(Hotels.Search(apiKey, destID));
+            //Console.WriteLine(Hotels.Search(apiKey, Hotels.City(apiKey)));
 
-            Console.WriteLine(Hotels.HotelID(apiKey, destID));
+            //Console.WriteLine(Hotels.HotelID(apiKey, destID));
+            
             //Console.WriteLine(Hotels.Description(apiKey));
 
-            //Console.WriteLine(Hotels.Value(apiKey, destID));
+            Console.WriteLine(Hotels.Value(apiKey, Hotels.City(apiKey)));
 
-            //Console.WriteLine(Hotels.Name(apiKey, destID));
+           // Console.WriteLine(Hotels.Name(apiKey, destID));
 
             //Console.WriteLine(Hotels.Score(apiKey, destID));
 
