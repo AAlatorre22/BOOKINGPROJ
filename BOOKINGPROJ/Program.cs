@@ -23,23 +23,29 @@ namespace BOOKINGPROJ
             var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
             Console.WriteLine(destID);
 
-            // Console.WriteLine(Hotels.City(apiKey, city));
-
-            //Console.WriteLine(Hotels.Description(apiKey));
-            //Console.WriteLine(Cities.City(apiKey));
-
+            
             //unsure
             // Console.WriteLine(Provider.Description(Hotels.Description, KeyHolder.GetKey));
 
 
-            Console.WriteLine(Hotels.Search(apiKey, destID));
+            //Console.WriteLine(Hotels.Search(apiKey, destID));
 
-            
+            Console.WriteLine(Hotels.HotelID(apiKey, destID));
+            //Console.WriteLine(Hotels.Description(apiKey));
+
+            //Console.WriteLine(Hotels.Value(apiKey, destID));
+
+            //Console.WriteLine(Hotels.Name(apiKey, destID));
+
+            //Console.WriteLine(Hotels.Score(apiKey, destID));
+
+
 
             //var client = new RestClient("https://booking-com.p.rapidapi.com/v1/hotels/locations?name=Berlin&locale=en-us");
             //var request = new RestRequest();
             //request.AddHeader("X-RapidAPI-Key", "7b5c999cdcmsh26c0a24ac75c4d0p17ad3bjsn03f1cbc956be");
             //request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
+
             //var response = client.Execute(request);
 
 
