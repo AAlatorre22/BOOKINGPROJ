@@ -9,12 +9,15 @@ namespace BOOKINGPROJ
         static void Main(string[] args)
         {
 
-            string key = File.ReadAllText("appsettings.json");
-            string apiKey = JObject.Parse(key).GetValue("DefaultKey").ToString();
-            string apiCall = $"https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb";
+            //string key = File.ReadAllText("appsettings.json");
+            //string apiKey = JObject.Parse(key).GetValue("DefaultKey").ToString();
+            //string apiCall = $"https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb";
 
-            //Console.WriteLine("What city would you like to search?");
-            //var city = Console.ReadLine().ToLower();
+            Console.WriteLine("What city would you like to search?");
+            var city = Console.ReadLine().ToLower();
+
+            Hotels.City(KeyHolder.GetKey(), city);
+
             //var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
             //var request = new RestRequest();
             //request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
@@ -23,22 +26,22 @@ namespace BOOKINGPROJ
             //var destID = JArray.Parse(response.Content)[0]["dest_id"].ToString();
             //Console.WriteLine(destID);
 
-            
-            //unsure
-            // Console.WriteLine(Provider.Description(Hotels.Description, KeyHolder.GetKey));
 
+
+            Hotels.HotelID(KeyHolder.GetKey(), Hotels.HotelID(KeyHolder.GetKey(), city));
 
             //Console.WriteLine(Hotels.Search(apiKey, Hotels.City(apiKey)));
 
             //Console.WriteLine(Hotels.HotelID(apiKey, destID));
-            
+
             //Console.WriteLine(Hotels.Description(apiKey));
 
-            Console.WriteLine(Hotels.Value(apiKey, Hotels.City(apiKey)));
+            Console.WriteLine(Hotels.Description(KeyHolder.GetKey(), Hotels.HotelID(KeyHolder.GetKey(), city)));
+            Console.WriteLine(Hotels.Value(KeyHolder.GetKey(), Hotels.City(KeyHolder.GetKey(), city)));
 
-           // Console.WriteLine(Hotels.Name(apiKey, destID));
+            Console.WriteLine(Hotels.Name(KeyHolder.GetKey(), Hotels.City(KeyHolder.GetKey(), city)));
 
-            //Console.WriteLine(Hotels.Score(apiKey, destID));
+            Console.WriteLine(Hotels.Score(KeyHolder.GetKey(), Hotels.City(KeyHolder.GetKey(), city)));
 
 
 

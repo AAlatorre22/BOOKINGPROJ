@@ -24,9 +24,9 @@ namespace BOOKINGPROJ
             return hotelID;
         }
 
-        public static string Description(string apiKey)
+        public static string Description(string apiKey, string hotelID)
         {
-            var client = new RestClient("https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id=1377073&locale=en-gb");
+            var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/data?hotel_id={hotelID}&locale=en-gb");
             var request = new RestRequest();
             request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
             request.AddHeader("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
@@ -40,10 +40,10 @@ namespace BOOKINGPROJ
 
 
 
-        public static string City(string apiKey) //, string city)
+        public static string City(string apiKey, string city)
         {
-            Console.WriteLine("What city would you like to search?");
-            var city = Console.ReadLine().ToLower();
+            //Console.WriteLine("What city would you like to search?");
+            //var city = Console.ReadLine().ToLower();
             var client = new RestClient($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={city}&locale=en-us");
             var request = new RestRequest();
             request.AddHeader("X-RapidAPI-Key", $"{apiKey}");
